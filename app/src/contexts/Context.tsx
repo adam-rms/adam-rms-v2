@@ -2,6 +2,7 @@ import AssetTypeProvider from "./asset/AssetTypeContext";
 import CmsPageProvider from "./cms/CmsPageContext";
 import ProjectProvider from "./project/ProjectContext";
 import ProjectDataProvider from "./project/ProjectDataContext";
+import LocationProvider from "./utility/LocationContext";
 
 /**
  * This is used to wrap all contexts into one component.
@@ -14,7 +15,9 @@ export default function Contexts(props: any) {
       <AssetTypeProvider>
         <ProjectProvider>
           <ProjectDataProvider>
-            <CmsPageProvider>{props.children}</CmsPageProvider>
+            <LocationProvider>
+              <CmsPageProvider>{props.children}</CmsPageProvider>
+            </LocationProvider>
           </ProjectDataProvider>
         </ProjectProvider>
       </AssetTypeProvider>

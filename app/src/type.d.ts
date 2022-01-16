@@ -104,6 +104,13 @@ interface IProjectData {
   FINANCIALS: any;
 }
 
+/* AdamRMS Location */
+interface ILocation {
+  name: string;
+  value: string;
+  type: "barcode" | "asset" | "custom" | undefined;
+}
+
 /**
  * CMS Page List
  */

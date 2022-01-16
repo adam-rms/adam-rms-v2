@@ -16,6 +16,7 @@ import { useContext } from "react";
 import { useParams } from "react-router";
 import AssetItem from "../../components/assets/AssetItem";
 import Page from "../../components/Page";
+import ProjectFab from "../../components/projects/ProjectFAB";
 import { ProjectDataContext } from "../../contexts/project/ProjectDataContext";
 import { MassFormatter, MoneyFormatter } from "../../utilities/Formatters";
 import Refresher from "../../components/Refresher";
@@ -164,6 +165,7 @@ const ProjectAssets = () => {
   return (
     <Page title="Project Assets">
       <Refresher onRefresh={doRefresh} />
+      <ProjectFab />
       {assets}
     </Page>
   );

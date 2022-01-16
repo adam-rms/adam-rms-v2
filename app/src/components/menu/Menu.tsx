@@ -1,5 +1,10 @@
-import { IonItemDivider, IonLabel, IonMenu, IonMenuToggle } from "@ionic/react";
-import { useLocation } from "react-router-dom";
+import {
+  IonFooter,
+  IonItemDivider,
+  IonLabel,
+  IonMenu,
+  IonMenuToggle,
+} from "@ionic/react";
 import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StyledIonContent from "./components/StyledIonContent";
@@ -12,6 +17,8 @@ import BrandText from "./components/BrandText";
 import CmsPages from "./components/CmsPages";
 import SkeletonLink from "./components/SkeletonLink";
 import { MenuItem } from "./components/MenuItem";
+import { useContext } from "react";
+import { LocationContext } from "../../contexts/utility/LocationContext";
 
 const FONT_AWESOME_MULTIPLIER: SizeProp | undefined = "1x";
 
@@ -19,7 +26,7 @@ const FONT_AWESOME_MULTIPLIER: SizeProp | undefined = "1x";
  * The Menu!
  */
 const Menu: React.FC = () => {
-  const location = useLocation();
+  const { location } = useContext(LocationContext);
 
   // Add new pages to this array.
   // The type must be set as defined in MenuItem.d.ts. This is
@@ -118,6 +125,11 @@ const Menu: React.FC = () => {
           })}
         </StyledIonList>
       </StyledIonContent>
+      <IonFooter>
+        <BrandText className="ion-padding-horizontal ion-text-center">
+          Current Location: {location.name}
+        </BrandText>
+      </IonFooter>
     </IonMenu>
   );
 };

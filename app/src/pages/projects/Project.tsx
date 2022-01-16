@@ -20,6 +20,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProjectDataContext } from "../../contexts/project/ProjectDataContext";
 import Page from "../../components/Page";
 import { baseURL } from "../../utilities/Api";
+import ProjectFab from "../../components/projects/ProjectFAB";
 import Refresher from "../../components/Refresher";
 
 /**
@@ -39,7 +40,7 @@ const Project = () => {
   //get individual project data
   useEffect(() => {
     refreshProjectData(parseInt(projectId));
-  }, [projectId]);
+  }, [projectId, refreshProjectData]);
 
   //Check project name
   let project_name = "AdamRMS Project";
@@ -50,6 +51,7 @@ const Project = () => {
   return (
     <Page title={project_name}>
       <Refresher onRefresh={doRefresh} />
+      <ProjectFab />
 
       {/* Project Data*/}
       <IonCard>
